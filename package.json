@@ -1,0 +1,28 @@
+{
+  "name": "willow-bot",
+  "version": "1.0.0",
+  "description": "Fork of Nicashee with checkin and nsfw access mgmt.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Phil",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^1.1.0",
+    "bufferutil": "^4.0.5",
+    "discord.js": "^14.1.2",
+    "jsdom": "^20.0.0",
+    "moment": "^2.29.4",
+    "mysql2": "^2.3.2",
+    "pretty-ms": "^7.0.1",
+    "sequelize": "^6.21.3",
+    "utf-8-validate": "^5.0.7"
+  }
+}

@@ -1,0 +1,86 @@
+{
+    "name": "WillowBot",
+    "clientId": "1005997133507338311",
+    "guildId": "1004425541182570506",
+    "teamRole": "1005325291587108904",
+    "ownerRole": "1005324751541116928",
+    "setup": {
+        "logStatusChannel": "1006024154484584468",
+        "setupFunctions": [
+            "SETUP_offlineStat",
+            "SETUP_roleRequest",
+            "SETUP_status"
+        ],
+        "roleRequest": {
+            "channelID": "1006243124760293376",
+            "unique": ["1005326064660262992", "1005326106452303944"],
+            "roles": [
+                {
+                    "name": "Artist",
+                    "roleID": "1005325615102177350",
+                    "emoji": "📝",
+                    "mature": false
+                },
+                {
+                    "name": "Avatar Creator",
+                    "roleID": "1005325535209082940",
+                    "emoji": "🖥️",
+                    "mature": false
+                },
+                {
+                    "name": "He/Him",
+                    "roleID": "1005325808421843024",
+                    "emoji": "🧔‍♂️",
+                    "mature": false
+                },
+                {
+                    "name": "She/Her",
+                    "roleID": "1005325879062310953",
+                    "emoji": "👱‍♀️",
+                    "mature": false
+                },
+                {
+                    "name": "They/Them",
+                    "roleID": "1005325948431896657",
+                    "emoji": "👫",
+                    "mature": false
+                },
+                {
+                    "name": "Straight",
+                    "roleID": "1005326064660262992",
+                    "emoji": "♀️",
+                    "mature": false
+                },
+                {
+                    "name": "Pansexual",
+                    "roleID": "1005326106452303944",
+                    "emoji": "⚧",
+                    "mature": false
+                },
+                {
+                    "name": "18+",
+                    "roleID": "851695851062427649",
+                    "emoji": "🔞",
+                    "mature": true
+                }
+            ]
+        }
+    },
+    "checkin": {
+        "reaction": {
+            "channel": "1005326600600039484",
+            "message": "1006271254187233290",
+            "emoji": "👌"
+        },
+        "categoryID": "1006021523150213151",
+        "welcomeChannel": "1005330669825691658",
+        "archiveChannel": "1006024154484584468",
+        "ignoreChannels": [],
+        "checkinRoles": ["1005325680071954502"]
+    },
+    "DoBchecking": {
+        "dateFormats": ["YYYY-MM-DD", "DD/MM/YYYY"],
+        "logChannelID": "1006026094492786749"
+    },
+    "aboutText": "./config/about.txt"
+}

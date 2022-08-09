@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  bot_wb:
+    build:
+      context: ./
+    restart: always
+    environment:
+      DCtoken: ${DISCORD_BOT_TOKEN}
+      DBdatabase: willowbot
+      DBhost: willow-bot_db_gb_1
+      DBusername: willowbot
+      DBpassword: ${DB_PASSWORD}
+
+  db_wb:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - "${DB_PORT}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD_ROOT}
+      MYSQL_DATABASE: willowbot
+      MYSQL_USER: willowbot
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
