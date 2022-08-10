@@ -14,7 +14,7 @@ module.exports.run = async () => {
     .setColor(4296754)
     .setFooter({ text: `${client.user.tag}`, icon_url: `${client.user.displayAvatarURL}` })
     .setTimestamp();
-  const offlineTime = await OfflineStat.findOne({ where: { ID: 1 } }).catch(ERR);
+  const offlineTime = await OfflineStat.findOne({ where: { ID: 2 } }).catch(ERR);
   if (offlineTime) {
     embed
       .addField('The time the bot went offline:', `${toTime(startupTime - offlineTime.time * 1)}`, false)
