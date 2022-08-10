@@ -3,7 +3,7 @@
     "clientId": "1005997133507338311",
     "guildId": "1004425541182570506",
     "teamRole": "1005325291587108904",
-    "ownerRole": "1005324751541116928",
+    "ownerRole": "998691048744296459",
     "setup": {
         "logStatusChannel": "1006024154484584468",
         "setupFunctions": [
@@ -59,7 +59,7 @@
                 },
                 {
                     "name": "18+",
-                    "roleID": "851695851062427649",
+                    "roleID": "1005326354780258376",
                     "emoji": "🔞",
                     "mature": true
                 }
@@ -82,5 +82,5 @@
         "dateFormats": ["YYYY-MM-DD", "DD/MM/YYYY"],
         "logChannelID": "1006026094492786749"
     },
-    "aboutText": "./config/about.txt"
+    "aboutText": "./about.txt"
 }

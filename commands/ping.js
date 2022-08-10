@@ -1,10 +1,8 @@
-const { EmbedBuilder, MessageActionRow, MessageButton } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 // Ping kickoff for bot latency
 async function kickoff(interaction) {
-  const sendMessage = await new EmbedBuilder()
-    .setDescription('📤 Pong...')
-    .setColor();
+  const sendMessage = await new EmbedBuilder().setDescription('📤 Pong...');
   const sentMessage = await interaction.reply({ embeds: [sendMessage], fetchReply: true });
   return sentMessage;
 }
@@ -17,21 +15,12 @@ function editedMessage(sentMessage, interaction) {
   API latency is \`${api_latency}\`ms`;
   return new EmbedBuilder()
     .setDescription(body)
-    .setColor();
+    .setColor('Green');
 }
 
 // posts ping message and edits it afterwards
 async function checkPing(interaction) {
   const sentReply = await kickoff(interaction);
-  // const test = new MessageActionRow()
-  //   .addComponents(
-  //     new MessageButton()
-  //       .setCustomId('test')
-  //       .setEmoji('💩')
-  //       .setLabel('Testo')
-  //       .setStyle('DANGER'),
-  //   );
-  // interaction.editReply({ embeds: [editedMessage(sentReply, interaction)], components: [test] });
   interaction.editReply({ embeds: [editedMessage(sentReply, interaction)] });
 }
 

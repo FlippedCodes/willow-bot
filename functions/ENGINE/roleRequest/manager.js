@@ -1,11 +1,12 @@
 const { EmbedBuilder } = require('discord.js');
 
-function sendEmbed(channel, color, text, title) {
+async function sendEmbed(channel, color, text, title) {
   const embed = new EmbedBuilder()
     .setColor(color)
     .setTitle(title)
     .setDescription(text);
-  channel.send({ embeds: [embed] });
+  const sentMessage = await channel.send({ embeds: [embed] });
+  setTimeout(() => sentMessage.delete(), 10000);
 }
 
 // creates a embed messagetemplate for succeded actions
@@ -91,10 +92,10 @@ module.exports.run = async (reaction, user) => {
         await roleHandler(requestedRole, roleRequestConf.unique, user, reaction);
         break;
       case false:
-        messageFail(reaction.message.channel, `\`${requestedRole.name}\` is a 18+ role. You are not old enough, that I can give you this role!`, user.tag);
+        messageFail(reaction.message.channel, `\`${requestedRole.name}\` is a mature role. You are not old enough, that I can give you this role!`, user.tag);
         break;
       case null:
-        messageFail(reaction.message.channel, `\`${requestedRole.name}\` is a 18+ role. You haven't applied for that yet. Have a read of <#1005326600600039484> how to get access.`, user.tag);
+        messageFail(reaction.message.channel, `\`${requestedRole.name}\` is a mature role. You haven't applied for that yet. Have a read of <#1005326600600039484> how to get access.`, user.tag);
         break;
       default:
         break;

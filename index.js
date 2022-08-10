@@ -7,18 +7,17 @@ const fs = require('fs');
 // init command builder
 const { SlashCommandBuilder } = require('@discordjs/builders');
 // use contructor to create intent bit field
-const intents = new IntentsBitField(
+const intents = new IntentsBitField([
   IntentsBitField.Flags.DirectMessages,
   IntentsBitField.Flags.Guilds,
   IntentsBitField.Flags.GuildMessages,
   IntentsBitField.Flags.GuildMessageReactions,
   IntentsBitField.Flags.GuildMembers,
   IntentsBitField.Flags.MessageContent,
-);
-const partials = [Partials.MESSAGE, Partials.REACTION];
+]);
 // setting essential global values
 // init Discord client
-global.client = new Client({ disableEveryone: true, intents, partials });
+global.client = new Client({ disableEveryone: true, intents });
 // init config
 global.config = require('./config.json');
 
@@ -32,7 +31,7 @@ global.ERR = (err) => {
   if (DEBUG) return;
   const { EmbedBuilder } = require('discord.js');
   const embed = new EmbedBuilder()
-    .setAuthor(`Error: '${err.message}'`)
+    .setAuthor({ name: `Error: '${err.message}'` })
     .setDescription(`STACKTRACE:\n\`\`\`${err.stack.slice(0, 4000)}\`\`\``)
     .setColor(16449540);
   client.channels.cache.get(config.setup.logStatusChannel).send({ embeds: [embed] });
@@ -97,11 +96,11 @@ client.on('messageReactionAdd', (reaction, user) => {
 });
 
 // trigger on reaction with raw package
-// client.on('raw', async (packet) => {
-//   if (packet.t === 'MESSAGE_REACTION_ADD' && packet.d.guild_id) {
-//     client.functions.get('d').run(packet.d);
-//   }
-// });
+client.on('raw', async (packet) => {
+  if (packet.t === 'MESSAGE_REACTION_ADD' && packet.d.guild_id) {
+    client.functions.get('ENGINE_checkin_initReaction').run(packet.d).catch(ERR);
+  }
+});
 
 // logging errors and warns
 client.on('error', (e) => console.error(e));

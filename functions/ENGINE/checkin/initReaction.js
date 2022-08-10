@@ -3,7 +3,7 @@ Hey there <@!${userID}>! Welcome to Fazclaire Nightclub.
 Before we let you in im going to ask you some questions, before a staff member is going to let you in.
 
 :one: - Please provide your VRChat username/username link
-:two:  - What is your DoB date of birth? (Make sure it is in the DD/MM/YYYY format)
+:two: - What is your DoB date of birth? (Make sure it is in the DD/MM/YYYY format)
 :three: - Explain a little about yourself
 :four: - Please provide your ID as in <#1005326600600039484> described. This is optional if you want access to the NSFW channels.
 
@@ -19,10 +19,9 @@ function calcUserAge(user) {
 }
 
 function createChannel(guild, user, topic) {
-  guild.channels.create(user.id, { type: 'text', topic, parent: config.checkin.categoryID })
+  guild.channels.create({ name: user.id, topic, parent: config.checkin.categoryID })
     .then((channel) => channel.lockPermissions())
-    .then((channel) => channel.permissionOverwrites.edit(user.id, { VIEW_CHANNEL: true }))
-    // .then((channel) => channel.createOverwrite(user, { VIEW_CHANNEL: true }))
+    .then((channel) => channel.permissionOverwrites.edit(user.id, { ViewChannel: true }))
     .then(async (channel) => channel.send(welcomeMessage(user.id)))
     .catch(ERR);
 }

@@ -9,10 +9,12 @@ module.exports.run = async (interaction, body, title, color, footer, ephemeral) 
   if (color) embed.setColor(color);
   if (footer) embed.setFooter(footer);
 
-  return interaction.reply({
+  const options = {
     embeds: [embed],
+    components: [],
     ephemeral: String(ephemeral) ? ephemeral : true,
-  });
+  };
+  return reply(interaction, options).catch(ERR);
 };
 
 module.exports.data = {

@@ -25,7 +25,7 @@ module.exports.run = async () => {
     console.log(`[${module.exports.data.name}] The channel with the ID ${roleRequestID} doesn't exist and is going to be skipped!`);
     return;
   }
-  roleRequest.bulkDelete(10).catch(ERR);
+  await roleRequest.bulkDelete(10).catch(ERR);
   const roleData = config.setup.roleRequest.roles;
   const embed = await buildEmbed(roleData);
   const sentMessage = await roleRequest.send({ embeds: [embed] });
