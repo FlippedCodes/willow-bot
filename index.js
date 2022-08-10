@@ -1,3 +1,6 @@
+// init environment
+require('dotenv').config();
+
 // init Discord
 const {
   Client, IntentsBitField, Partials, Collection,
