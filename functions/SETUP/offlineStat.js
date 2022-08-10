@@ -17,8 +17,8 @@ module.exports.run = async () => {
   const offlineTime = await OfflineStat.findOne({ where: { ID: 2 } }).catch(ERR);
   if (offlineTime) {
     embed
-      .addField('The time the bot went offline:', `${toTime(startupTime - offlineTime.time * 1)}`, false)
-      .addField('The bot went offline at:', `${new Date(offlineTime.time * 1)}`, false);
+      .addFields([{ name: 'The time the bot went offline:', value: `${toTime(startupTime - offlineTime.time * 1)}`, inline: true }])
+      .addFields([{ name: 'The bot went offline at:', value: `${new Date(offlineTime.time * 1)}`, inline: true }]);
   } else {
     embed.setDescription('The time that the bot was offline, is missing. A new entry got created!');
   }
